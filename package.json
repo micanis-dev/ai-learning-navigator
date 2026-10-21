@@ -1,0 +1,29 @@
+{
+  "name": "ai-learning-navigator-frontend",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "pnpm build.types && pnpm build.client && pnpm build.preview",
+    "build.client": "vite build",
+    "build.preview": "vite build --ssr src/entry.preview.tsx",
+    "build.types": "tsc --incremental --noEmit",
+    "dev": "vite --mode ssr",
+    "preview": "pnpm build && vite preview",
+    "start": "vite --open --mode ssr",
+    "qwik": "qwik",
+    "build.static": "vite build -c adapters/static/vite.config.ts",
+    "build.pages": "pnpm build.client && pnpm build.static"
+  },
+  "devDependencies": {
+    "@builder.io/qwik": "^1.20.2",
+    "@builder.io/qwik-city": "^1.20.2",
+    "@types/node": "^22.0.0",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.0",
+    "vite-tsconfig-paths": "^5.1.4"
+  },
+  "packageManager": "pnpm@12.9.0"
+}

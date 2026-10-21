@@ -1,0 +1,19 @@
+# Allowlist: ignore everything, then re-include only what is needed to build
+/*
+
+!/.gitignore
+!/package.json
+!/pnpm-lock.yaml
+!/pnpm-workspace.yaml
+!/tsconfig.json
+!/vite.config.ts
+!/src/
+!/public/
+!/adapters/
+!/.github/
+
+# Never commit these, even inside allowed directories
+.DS_Store
+.env
+.env.*
+*.log

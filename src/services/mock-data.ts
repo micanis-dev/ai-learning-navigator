@@ -1,0 +1,217 @@
+// 日本語ダミーデータ。教材タイトルは実在風だが、URLはすべてダミー(example.com)。
+import type { Exercise, Material, User } from "~/types";
+
+export const MOCK_USER: User = {
+  id: "user-demo-001",
+  display_name: "デモ 太郎",
+  role: "student", // 既定は学生。設定画面のデモ用切替で admin にできる。
+  plan_label: "ChatGPT Plus（ダミー）",
+};
+
+export const SUBJECTS = [
+  { subject: "programming", topic: "python", label: "Python" },
+  { subject: "ai_literacy", topic: "generative_ai", label: "生成AI活用" },
+] as const;
+
+const V = "2026-10-01T00:00:00+09:00";
+
+export const MOCK_MATERIALS: Material[] = [
+  {
+    id: "python-001",
+    title: "Python入門：はじめの一歩",
+    url: "https://example.com/python/intro",
+    provider: "Example Learn",
+    description: "変数・型・条件分岐・繰り返しを、手を動かしながら学ぶ初心者向けの文章教材。",
+    level: "beginner",
+    duration_minutes: 60,
+    format: "article",
+    is_free: true,
+    review_status: "approved",
+    verified_at: V,
+    tags: ["python", "基礎", "文法"],
+    topic: "python",
+  },
+  {
+    id: "python-002",
+    title: "動画で学ぶPython基礎講座",
+    url: "https://example.com/python/video-basics",
+    provider: "Example Video Academy",
+    description: "関数・リスト・辞書までを約90分の動画で解説。画面を見ながら一緒にコードを書ける。",
+    level: "beginner",
+    duration_minutes: 90,
+    format: "video",
+    is_free: true,
+    review_status: "approved",
+    verified_at: V,
+    tags: ["python", "基礎", "動画"],
+    topic: "python",
+  },
+  {
+    id: "python-003",
+    title: "PythonでCSVを読み書きする（csvモジュール入門）",
+    url: "https://example.com/python/csv",
+    provider: "Example Docs JP",
+    description: "csvモジュールでファイルを読み込み、列ごとの合計や平均を求める小さな実践チュートリアル。",
+    level: "basic",
+    duration_minutes: 45,
+    format: "article",
+    is_free: true,
+    review_status: "approved",
+    verified_at: V,
+    tags: ["python", "csv", "データ集計"],
+    topic: "python",
+  },
+  {
+    id: "python-004",
+    title: "ブラウザで動かすPython演習（インタラクティブ）",
+    url: "https://example.com/python/playground",
+    provider: "Example Playground",
+    description: "インストール不要。ブラウザ上でコードを実行しながら、リスト操作や集計の練習ができる。",
+    level: "basic",
+    duration_minutes: 120,
+    format: "interactive",
+    is_free: true,
+    review_status: "approved",
+    verified_at: V,
+    tags: ["python", "実践", "演習"],
+    topic: "python",
+  },
+  {
+    id: "python-005",
+    title: "pandasで始めるデータ分析（審査中）",
+    url: "https://example.com/python/pandas",
+    provider: "Example Data School",
+    description: "pandasによるデータフレーム操作の入門。無料範囲を確認中のため審査待ち。",
+    level: "experienced",
+    duration_minutes: 150,
+    format: "video",
+    is_free: true,
+    review_status: "pending",
+    verified_at: null,
+    tags: ["python", "pandas", "データ分析"],
+    topic: "python",
+  },
+  {
+    id: "ai-001",
+    title: "生成AIとは？仕組みと使いどころ",
+    url: "https://example.com/ai/what-is-genai",
+    provider: "Example AI Literacy",
+    description: "大規模言語モデルの基本、得意・不得意、利用時の注意点を図解で学ぶ入門記事。",
+    level: "beginner",
+    duration_minutes: 30,
+    format: "article",
+    is_free: true,
+    review_status: "approved",
+    verified_at: V,
+    tags: ["生成AI", "基礎", "リテラシー"],
+    topic: "generative_ai",
+  },
+  {
+    id: "ai-002",
+    title: "プロンプトの書き方 基本の型",
+    url: "https://example.com/ai/prompt-basics",
+    provider: "Example AI Literacy",
+    description: "役割・目的・条件・出力形式を指定する基本の型を、改善前後の例で学ぶ。",
+    level: "beginner",
+    duration_minutes: 40,
+    format: "article",
+    is_free: true,
+    review_status: "approved",
+    verified_at: V,
+    tags: ["生成AI", "プロンプト", "実践"],
+    topic: "generative_ai",
+  },
+  {
+    id: "ai-003",
+    title: "生成AIで学習・レポート作成を効率化する（動画）",
+    url: "https://example.com/ai/study-with-genai",
+    provider: "Example Video Academy",
+    description: "要約・壁打ち・推敲に生成AIを使う方法と、引用・出典確認・著作権の注意点を解説。",
+    level: "basic",
+    duration_minutes: 50,
+    format: "video",
+    is_free: true,
+    review_status: "approved",
+    verified_at: V,
+    tags: ["生成AI", "学習法", "倫理"],
+    topic: "generative_ai",
+  },
+  {
+    id: "ai-004",
+    title: "生成AIアプリ開発ハンズオン（公開停止中）",
+    url: "https://example.com/ai/handson-old",
+    provider: "Example Dev Lab",
+    description: "リンク切れのため公開停止中の教材。",
+    level: "experienced",
+    duration_minutes: 180,
+    format: "interactive",
+    is_free: true,
+    review_status: "suspended",
+    verified_at: "2026-08-01T00:00:00+09:00",
+    tags: ["生成AI", "開発"],
+    topic: "generative_ai",
+  },
+  {
+    id: "ai-005",
+    title: "ハルシネーションを見抜く：生成AI出力のファクトチェック",
+    url: "https://example.com/ai/fact-check",
+    provider: "Example AI Literacy",
+    description: "誤情報を含む生成AIの出力を題材に、確認の手順と情報源の探し方を実践的に学ぶ。",
+    level: "basic",
+    duration_minutes: 35,
+    format: "interactive",
+    is_free: true,
+    review_status: "approved",
+    verified_at: V,
+    tags: ["生成AI", "ファクトチェック", "実践"],
+    topic: "generative_ai",
+  },
+];
+
+function ex(
+  material_id: string,
+  n: number,
+  question: string,
+  choices: string[],
+  answer: number,
+  explanation: string,
+): Exercise {
+  return { id: `${material_id}-q${n}`, material_id, type: "single_choice", question, choices, answer, explanation };
+}
+function ft(material_id: string, n: number, question: string, explanation: string, rubric: string): Exercise {
+  return { id: `${material_id}-q${n}`, material_id, type: "free_text", question, explanation, rubric };
+}
+
+export const MOCK_EXERCISES: Exercise[] = [
+  ex("python-001", 1, "Pythonで文字列 \"Hello\" を画面に表示する関数はどれ？", ["echo()", "print()", "show()", "write()"], 1, "標準出力への表示には print() を使います。"),
+  ex("python-001", 2, "次のうち、繰り返し処理を書くための構文はどれ？", ["for", "if", "def", "import"], 0, "for は繰り返し（ループ）、if は条件分岐、def は関数定義、import はモジュール読み込みです。"),
+  ft("python-001", 3, "変数とは何か、自分の言葉で1〜2文で説明してください。", "変数は値に名前を付けて保存しておく仕組みです。", "「値」「名前」「保存・再利用」のうち2点以上に触れていれば良好。"),
+
+  ex("python-002", 1, "リスト [1, 2, 3] の長さを得る関数は？", ["size()", "count()", "len()", "length()"], 2, "len() でリストや文字列の要素数を取得できます。"),
+  ex("python-002", 2, "辞書(dict)から値を取り出すときに使うものは？", ["インデックス番号", "キー", "ラベル番号", "スライス"], 1, "辞書はキーを指定して値を取り出します。"),
+  ft("python-002", 3, "関数を使うメリットを1つ挙げ、理由を述べてください。", "同じ処理を再利用でき、コードが読みやすくなります。", "再利用・可読性・テスト容易性などの利点と理由が書かれていれば良好。"),
+
+  ex("python-003", 1, "csvモジュールでファイルを1行ずつ辞書として読み込むクラスは？", ["csv.DictReader", "csv.Lines", "csv.Table", "csv.Parser"], 0, "csv.DictReader は先頭行をキーとして各行を辞書で返します。"),
+  ex("python-003", 2, "CSVの数値列を合計する前に必要な処理は？", ["文字列を数値に変換する", "ファイルを削除する", "列を並べ替える", "何も不要"], 0, "CSVから読んだ値は文字列なので、float() や int() で変換してから集計します。"),
+  ft("python-003", 3, "売上CSV（日付,商品,金額）から商品ごとの合計金額を求める手順を説明してください。", "辞書に商品ごとの合計を貯めていく方法が基本です。", "「読み込み」「金額を数値化」「商品ごとに加算」の3要素があれば良好。"),
+
+  ex("python-004", 1, "リストの末尾に要素を追加するメソッドは？", ["add()", "append()", "push()", "insert_end()"], 1, "list.append() で末尾に追加します。"),
+  ex("python-004", 2, "リスト内包表記 [x*2 for x in [1,2,3]] の結果は？", ["[1, 2, 3]", "[2, 4, 6]", "[2, 3, 4]", "エラー"], 1, "各要素が2倍になり [2, 4, 6] になります。"),
+  ft("python-004", 3, "ブラウザ上で試したコードで、エラーが出たときにどう対処したか（または対処するか）を書いてください。", "エラーメッセージの最終行と行番号を確認するのが第一歩です。", "エラーメッセージを読む・原因を絞る・修正して再実行 などの手順があれば良好。"),
+
+  ex("ai-001", 1, "生成AIの出力について正しい説明はどれ？", ["常に正確である", "もっともらしい誤りを含むことがある", "著作権の問題は一切ない", "個人情報を入力しても安全"], 1, "生成AIは誤情報（ハルシネーション）を出すことがあるため、確認が必要です。"),
+  ex("ai-001", 2, "大規模言語モデルが主に行っていることは？", ["次に来る語の予測", "インターネット検索そのもの", "人間の脳のコピー", "データベースの全文検索"], 0, "大規模言語モデルは文脈から次に来る語（トークン）を予測して文章を生成します。"),
+  ft("ai-001", 3, "生成AIを学習に使うとき、気を付けたい点を2つ挙げてください。", "出典確認、個人情報の非入力、自分で考える機会を残す、などが重要です。", "「正確性の確認」「情報の取り扱い」「依存しすぎない」等から2点。"),
+
+  ex("ai-002", 1, "良いプロンプトに含めると効果的な要素はどれ？", ["曖昧な指示のみ", "役割・目的・出力形式", "ランダムな単語", "できるだけ短い一語"], 1, "役割・目的・条件・出力形式を明示すると意図が伝わりやすくなります。"),
+  ex("ai-002", 2, "出力が期待と違ったときの最初の対応として適切なのは？", ["諦める", "指示や条件を具体的に書き直す", "同じ指示を何度も送る", "AIを責める"], 1, "条件を具体化し、例を示して再依頼すると改善することが多いです。"),
+  ft("ai-002", 3, "「レポートを書いて」という指示を、より良いプロンプトに書き直してください。", "テーマ・字数・読者・構成などを加えます。", "目的・条件（字数や読者）・出力形式のうち2点以上があれば良好。"),
+
+  ex("ai-003", 1, "生成AIの文章をレポートに使う際に最も重要なことは？", ["そのまま提出する", "事実と出典を自分で確認する", "AIの名前を隠す", "長く書かせる"], 1, "内容の正確性は利用者の責任です。出典を確認し、所属先のルールに従いましょう。"),
+  ex("ai-003", 2, "生成AIに入力してはいけない情報の例は？", ["一般的な用語の質問", "他人の個人情報や機密情報", "文章の推敲依頼", "学習計画の相談"], 1, "個人情報・機密情報は入力しないのが原則です。"),
+  ft("ai-003", 3, "あなたの学習で生成AIを使える場面と、使わない方がよい場面を1つずつ挙げてください。", "壁打ちや要約は有効ですが、課題の丸投げは学習効果を損ないます。", "使う場面・使わない場面の双方が理由付きで書かれていれば良好。"),
+
+  ex("ai-005", 1, "生成AIの回答の事実確認として適切な方法は？", ["別の信頼できる情報源で確認する", "AIに「本当？」と一度聞く", "文章が自然なら正しいと判断", "確認しない"], 0, "一次情報や信頼できる出典で独立に確認します。"),
+  ex("ai-005", 2, "ハルシネーションの特徴として正しいものは？", ["必ず文法が崩れる", "存在しない文献や数値をもっともらしく示す", "常に警告が表示される", "短い回答でのみ起こる"], 1, "実在しない出典や数値を自信ありげに出すことがあります。"),
+  ft("ai-005", 3, "AIが示した統計値を見つけたとき、どのように裏取りしますか？手順を書いてください。", "出典の特定、一次資料の確認、日付や定義の照合が基本です。", "「出典を探す」「一次情報を確認」「複数ソース比較」のうち2点以上。"),
+];

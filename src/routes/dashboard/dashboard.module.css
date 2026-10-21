@@ -1,0 +1,45 @@
+/* 続きから：一番目立つ場所に、押せる大きな面として置く */
+.next { display: flex; align-items: center; gap: 18px; padding: 20px 22px; border-radius: 14px; background: var(--c-ink); color: #fff; text-decoration: none; }
+.next:hover .nextPlay { transform: scale(1.06); }
+.nextPlay { display: grid; place-items: center; width: 60px; height: 60px; flex: none; border-radius: 50%; background: var(--c-route); color: var(--c-ink); transition: transform .15s; }
+.nextBody { display: grid; gap: 2px; flex: 1; min-width: 0; }
+.nextLabel { font-size: .78rem; font-weight: 700; color: var(--c-route); }
+.nextTitle { font-family: var(--f-display); font-weight: 700; font-size: 1.2rem; line-height: 1.4; }
+.nextMeta { display: inline-flex; align-items: center; gap: 4px; font-size: .82rem; color: #aeb8d3; }
+.nextDone :global(.btn-secondary) { border-color: var(--c-route); }
+
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; list-style: none; margin: 14px 0 0; padding: 0; }
+.stats li { display: grid; justify-items: center; gap: 2px; padding: 16px 8px; border-radius: var(--radius); background: var(--c-surface); border: 1px solid var(--c-border); color: var(--c-muted); }
+.stat { font-family: var(--f-display); font-size: 1.8rem; font-weight: 900; color: var(--c-ink); line-height: 1.2; }
+.stat small { font-size: .9rem; color: var(--c-muted); }
+.statLabel { font-size: .78rem; font-weight: 700; }
+
+.section { margin-top: 32px; }
+.section h2 { font-size: 1rem; }
+.list { list-style: none; margin: 0; padding: 4px 18px; }
+.list li { display: flex; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid var(--c-border); }
+.list li:last-child { border-bottom: 0; }
+.listIcon { color: var(--c-warn); }
+.grow { flex: 1; min-width: 0; }
+.mark { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; flex: none; }
+.markOk { background: var(--c-success-soft); color: var(--c-success); }
+.markNg { background: var(--c-danger-soft); color: var(--c-danger); }
+.markRef { background: var(--c-route-soft); color: var(--c-warn); }
+
+/* 教材ごとの状態：各教材を駅に見立てた縦の路線 */
+.line { --dot: 20px; list-style: none; margin: 0; padding: 8px 18px; }
+.stop { position: relative; display: grid; grid-template-columns: var(--dot) 1fr auto; column-gap: 14px; align-items: center; padding: 11px 0; }
+.stop::before { content: ""; position: absolute; left: calc(var(--dot) / 2 - 4px); top: 0; bottom: 0; width: 8px; background: var(--c-border); }
+.stop:first-child::before { top: 50%; }
+.stop:last-child::before { bottom: 50%; }
+.stop:only-child::before { display: none; }
+.done::before { background: var(--c-route); }
+.dot { position: relative; width: var(--dot); height: var(--dot); border-radius: 50%; background: var(--c-surface); border: 4px solid var(--c-border); }
+.done .dot { border-color: var(--c-ink); background: var(--c-ink); }
+.now .dot { border-color: var(--c-ink); box-shadow: 0 0 0 4px var(--c-route); }
+.stopTitle { min-width: 0; }
+@media (max-width: 600px) {
+  .next { padding: 16px; gap: 14px; }
+  .nextPlay { width: 50px; height: 50px; }
+  .nextTitle { font-size: 1.05rem; }
+}

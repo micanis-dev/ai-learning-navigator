@@ -1,0 +1,20 @@
+.hero { padding: 32px 0 16px; text-align: center; }
+.headline { font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 900; line-height: 1.3; letter-spacing: .02em; margin: 0 0 16px; }
+.intro { margin: 0 auto 48px; color: var(--c-muted); font-size: 1.05rem; }
+
+/* 4つのアイコンを黄色の線でつなぐ。表示時に線が左から引かれる */
+.route { --dot: 64px; position: relative; display: grid; grid-template-columns: repeat(4, 1fr); max-width: 720px; list-style: none; padding: 0; margin: 0 auto 48px; }
+.route::before { content: ""; position: absolute; left: 12.5%; right: 12.5%; top: calc(var(--dot) / 2 - 5px); height: 10px; background: var(--c-route); border-radius: 5px; transform-origin: left; animation: draw 1s cubic-bezier(.6, 0, .2, 1) .15s both; }
+@keyframes draw { from { transform: scaleX(0); } }
+.station { position: relative; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.dot { display: grid; place-items: center; width: var(--dot); height: var(--dot); border-radius: 50%; background: var(--c-surface); border: 4px solid var(--c-ink); color: var(--c-ink); }
+.station:first-child .dot { background: var(--c-ink); color: var(--c-route); }
+.name { font-family: var(--f-display); font-weight: 700; font-size: 1rem; }
+
+.cta { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 600px) {
+  .route { --dot: 52px; }
+  .name { font-size: .85rem; }
+  .cta { flex-direction: column; align-items: stretch; }
+}

@@ -1,0 +1,5 @@
+.wrap { overflow-x: auto; }
+.filters { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; }
+.filters > div { min-width: 180px; }
+.actions { display: flex; gap: 6px; flex-wrap: wrap; }
+.url { max-width: 220px; overflow-wrap: anywhere; word-break: break-all; font-size: .8rem; }
