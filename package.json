@@ -6,21 +6,26 @@
     "node": ">=20"
   },
   "scripts": {
+    "dev": "vite --mode ssr",
+    "start": "vite --open --mode ssr",
     "build": "pnpm build.types && pnpm build.client && pnpm build.preview",
+    "build.types": "tsc --incremental --noEmit",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
-    "build.types": "tsc --incremental --noEmit",
-    "dev": "vite --mode ssr",
-    "preview": "pnpm build && vite preview",
-    "start": "vite --open --mode ssr",
-    "qwik": "qwik",
     "build.static": "vite build -c adapters/static/vite.config.ts",
-    "build.pages": "pnpm build.client && pnpm build.static"
+    "build.pages": "pnpm build.client && pnpm build.static",
+    "preview": "pnpm build && vite preview"
   },
   "devDependencies": {
-    "@builder.io/qwik": "^1.20.2",
-    "@builder.io/qwik-city": "^1.20.2",
+    "@builder.io/qwik": "^1.20.4",
+    "@builder.io/qwik-city": "^1.20.4",
+    "@qwik-ui/headless": "^0.7.8",
+    "@qwik-ui/utils": "^0.3.3",
+    "@tailwindcss/vite": "^4.3.5",
     "@types/node": "^22.0.0",
+    "class-variance-authority": "^0.7.1",
+    "lucide": "1.65.0",
+    "tailwindcss": "^4.3.5",
     "typescript": "~5.8.3",
     "vite": "^7.0.0",
     "vite-tsconfig-paths": "^5.1.4"
